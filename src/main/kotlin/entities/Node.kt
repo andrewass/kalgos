@@ -1,5 +1,0 @@
-package entities
-
-interface Node {
-
-}
