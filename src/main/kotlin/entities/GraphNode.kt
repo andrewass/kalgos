@@ -1,11 +1,13 @@
 package entities
 
-interface Node {
+interface GraphNode {
+    var partlyProcessed : Boolean
 
-    val startTime : Long
-    val finishTime : Long
-    var visited : Boolean
-    var child : List<Node>
-    var parent : Node?
+    var processed : Boolean
 
+    var childrenList : MutableList<GraphNode>
+
+    fun addChild(child : GraphNode)
+
+    fun addChildren(children : List<GraphNode>)
 }

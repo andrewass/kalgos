@@ -1,14 +1,22 @@
-package entities
+package implementations
 
-class GraphNode(val id : Int) : Node {
+import entities.GraphNode
 
-    override var startTime: Long = 0L
+class GraphNodeImpl(val id: Int) :  GraphNode {
 
-    override val finishTime: Long = 0L
+    override var partlyProcessed = false
 
-    override var visited: Boolean = false
+    override var processed = false
 
-    override var child: List<Node> = mutableListOf<GraphNode>()
+    override var childrenList = mutableListOf<GraphNode>()
 
-    override var parent: Node? = null
+    override fun addChild(child: GraphNode) {
+        childrenList.add(child)
+    }
+
+    override fun addChildren(children: List<GraphNode>) {
+        for (child in children) {
+            childrenList.add(child)
+        }
+    }
 }
