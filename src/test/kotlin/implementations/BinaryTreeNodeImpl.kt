@@ -2,7 +2,7 @@ package implementations
 
 import entities.BinaryTreeNode
 
-class BinaryTreeNodeImpl(private val value : Int) : BinaryTreeNode {
+class BinaryTreeNodeImpl(private val value : Int, private val id : Long) : BinaryTreeNode {
 
     override var leftChild: BinaryTreeNode? = null
 
@@ -11,4 +11,8 @@ class BinaryTreeNodeImpl(private val value : Int) : BinaryTreeNode {
     override var parent : BinaryTreeNode? = null
 
     override fun getValue() = value
+
+    override fun getId(): Long {
+        return id
+    }
 }

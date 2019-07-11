@@ -1,6 +1,7 @@
 package datastructures.tree
 
 import entities.BinaryTreeNode
+import java.util.*
 
 /**
  * An implementation of a Binary Search Tree, using [BinaryTreeNode] as tree nodes
@@ -49,6 +50,7 @@ class BinarySearchTree {
                 if(minRightNode != delNode.parent){
                     transplant(minRightNode!!, minRightNode.rightChild)
                     minRightNode.rightChild = delNode.rightChild
+                    //TODO : Fix possible NPE due to missing parent
                     minRightNode.rightChild!!.parent = minRightNode
 
                 }
@@ -57,7 +59,15 @@ class BinarySearchTree {
                 minRightNode.leftChild!!.parent = minRightNode
             }
         }
+    }
 
+
+    fun getNode(node : BinaryTreeNode?, searchId : Long) : BinaryTreeNode?{
+        return when {
+            node == null || node.getId() == searchId -> node
+            searchId < node.getId() -> getNode(node.leftChild, searchId)
+            else -> getNode(node.rightChild, searchId)
+        }
     }
 
     /**
@@ -82,11 +92,11 @@ class BinarySearchTree {
     /**
      * Find the [BinaryTreeNode] with the lowest value in the tree
      *
-     * @param rootNode representing a selected root node from the entire tree, or a sub part of it.
+     * @param root representing a selected root node from the entire tree, or a sub part of it.
      * @return the node with the lowest value in the tree. Null if tree is empty
      */
-    fun findMinimum(rootNode: BinaryTreeNode?): BinaryTreeNode? {
-        var currentNode: BinaryTreeNode? = rootNode ?: return null
+    fun findMinimum(root: BinaryTreeNode?): BinaryTreeNode? {
+        var currentNode: BinaryTreeNode? = root ?: return null
         while (currentNode?.leftChild != null) {
             currentNode = currentNode.leftChild
         }
@@ -96,19 +106,32 @@ class BinarySearchTree {
     /**
      * Find the [BinaryTreeNode] with the largest value in the tree
      *
-     * @param rootNode representing a selected root node from the entire tree, or a sub part of it.
+     * @param root representing a selected root node from the entire tree, or a sub part of it.
      * @return the node with the largest value in the tree. Null if tree is empty
      */
-    fun findMaximum(rootNode: BinaryTreeNode?): BinaryTreeNode? {
-        var currentNode: BinaryTreeNode? = rootNode ?: return null
-        while (currentNode?.leftChild != null) {
-            currentNode = currentNode.leftChild
+    fun findMaximum(root: BinaryTreeNode?): BinaryTreeNode? {
+        var currentNode: BinaryTreeNode? = root ?: return null
+        while (currentNode?.rightChild != null) {
+            currentNode = currentNode.rightChild
         }
         return currentNode
+    }
+
+    fun inOrderList() : List<BinaryTreeNode>{
+        val inOrderList = LinkedList<BinaryTreeNode>()
+        fillInOrderList(rootNode, inOrderList)
+        return inOrderList
+    }
+
+    private fun fillInOrderList(node : BinaryTreeNode?, inOrderList: LinkedList<BinaryTreeNode>){
+        if(node != null){
+            fillInOrderList(node.leftChild, inOrderList)
+            inOrderList.addLast(node)
+            fillInOrderList(node.rightChild, inOrderList)
+        }
     }
 
     private fun lessThanCurrentNode(newNode: BinaryTreeNode, currentNode: BinaryTreeNode): Boolean {
         return newNode.getValue() < currentNode.getValue()
     }
-
 }

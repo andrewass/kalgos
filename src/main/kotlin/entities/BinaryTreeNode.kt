@@ -8,4 +8,5 @@ interface BinaryTreeNode {
 
     fun getValue() : Int
 
+    fun getId() : Long
 }
