@@ -47,12 +47,10 @@ class BinarySearchTree {
             delNode.rightChild == null -> transplant(delNode, delNode.leftChild)
             else -> {
                 val minRightNode = findMinimum(delNode.rightChild)
-                if(minRightNode != delNode.parent){
+                if(minRightNode!!.parent != delNode){
                     transplant(minRightNode!!, minRightNode.rightChild)
                     minRightNode.rightChild = delNode.rightChild
-                    //TODO : Fix possible NPE due to missing parent
                     minRightNode.rightChild!!.parent = minRightNode
-
                 }
                 transplant(delNode, minRightNode)
                 minRightNode!!.leftChild = delNode.leftChild
@@ -61,7 +59,9 @@ class BinarySearchTree {
         }
     }
 
-
+    /**
+     *
+     */
     fun getNode(node : BinaryTreeNode?, searchId : Long) : BinaryTreeNode?{
         return when {
             node == null || node.getId() == searchId -> node
@@ -117,12 +117,18 @@ class BinarySearchTree {
         return currentNode
     }
 
+    /**
+     *
+     */
     fun inOrderList() : List<BinaryTreeNode>{
         val inOrderList = LinkedList<BinaryTreeNode>()
         fillInOrderList(rootNode, inOrderList)
         return inOrderList
     }
 
+    /**
+     *
+     */
     private fun fillInOrderList(node : BinaryTreeNode?, inOrderList: LinkedList<BinaryTreeNode>){
         if(node != null){
             fillInOrderList(node.leftChild, inOrderList)
@@ -131,6 +137,9 @@ class BinarySearchTree {
         }
     }
 
+    /**
+     *
+     */
     private fun lessThanCurrentNode(newNode: BinaryTreeNode, currentNode: BinaryTreeNode): Boolean {
         return newNode.getValue() < currentNode.getValue()
     }
