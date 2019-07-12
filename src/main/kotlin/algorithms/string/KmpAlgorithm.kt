@@ -46,23 +46,23 @@ fun kmpSearch(txt: String, pat: String, caseSensitive: Boolean = true): List<Int
  * @return an array storing length of longest prefix and suffix for a given index.
  */
 private fun createKmpTable(word: String): IntArray {
-    var ind = 1
-    var k = 0
+    var wInd = 1
+    var counter = 0
     val table = IntArray(word.length)
 
     table[0] = 0
 
-    while (ind < word.length) {
-        if (word[ind] == word[k]) {
-            k++
-            table[ind] = k
-            ind++
+    while (wInd < word.length) {
+        if (word[wInd] == word[counter]) {
+            counter++
+            table[wInd] = counter
+            wInd++
         } else {
-            if (k != 0) {
-                k = table[k - 1]
+            if (counter != 0) {
+                counter = table[counter - 1]
             } else {
-                table[ind] = 0
-                ind++
+                table[wInd] = 0
+                wInd++
             }
         }
     }
