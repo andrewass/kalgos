@@ -47,13 +47,13 @@ class BinarySearchTree {
             delNode.rightChild == null -> transplant(delNode, delNode.leftChild)
             else -> {
                 val minRightNode = findMinimum(delNode.rightChild)
-                if(minRightNode!!.parent != delNode){
-                    transplant(minRightNode!!, minRightNode.rightChild)
+                if (minRightNode!!.parent != delNode) {
+                    transplant(minRightNode, minRightNode.rightChild)
                     minRightNode.rightChild = delNode.rightChild
                     minRightNode.rightChild!!.parent = minRightNode
                 }
                 transplant(delNode, minRightNode)
-                minRightNode!!.leftChild = delNode.leftChild
+                minRightNode.leftChild = delNode.leftChild
                 minRightNode.leftChild!!.parent = minRightNode
             }
         }
@@ -62,7 +62,7 @@ class BinarySearchTree {
     /**
      *
      */
-    fun getNode(node : BinaryTreeNode?, searchId : Long) : BinaryTreeNode?{
+    fun getNode(node: BinaryTreeNode?, searchId: Long): BinaryTreeNode? {
         return when {
             node == null || node.getId() == searchId -> node
             searchId < node.getId() -> getNode(node.leftChild, searchId)
@@ -120,7 +120,7 @@ class BinarySearchTree {
     /**
      *
      */
-    fun inOrderList() : List<BinaryTreeNode>{
+    fun inOrderList(): List<BinaryTreeNode> {
         val inOrderList = LinkedList<BinaryTreeNode>()
         fillInOrderList(rootNode, inOrderList)
         return inOrderList
@@ -129,8 +129,8 @@ class BinarySearchTree {
     /**
      *
      */
-    private fun fillInOrderList(node : BinaryTreeNode?, inOrderList: LinkedList<BinaryTreeNode>){
-        if(node != null){
+    private fun fillInOrderList(node: BinaryTreeNode?, inOrderList: LinkedList<BinaryTreeNode>) {
+        if (node != null) {
             fillInOrderList(node.leftChild, inOrderList)
             inOrderList.addLast(node)
             fillInOrderList(node.rightChild, inOrderList)

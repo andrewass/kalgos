@@ -24,7 +24,7 @@ class DepthFirstSearchTest {
     }
 
     @Test
-    fun shouldReturnEmptyListWhenInputGraphContainsNoNodes(){
+    fun shouldReturnEmptyListWhenInputGraphContainsNoNodes() {
         val emptyGraph = emptyList<GraphNodeImpl>()
         val topologicalOrderList = depthFirstSearch(emptyGraph)
 
