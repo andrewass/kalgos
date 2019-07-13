@@ -3,6 +3,7 @@ package datastructures.string
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 class   TrieTest {
 
@@ -55,6 +56,20 @@ class   TrieTest {
     fun shouldPerformRemovalOfNonInsertedWordsWithoutErrors(){
         val trie = Trie()
         trie.removeWord("program")
+    }
+
+    @Test
+    fun shouldReturnListOfWordsWithCommonPrefix(){
+        val trie = Trie()
+        val commonPrefixList = listOf("program","pro","provision","programming")
+        commonPrefixList.forEach(trie::addWord)
+        trie.addWord("node")
+        trie.addWord("random")
+        trie.addWord("pr")
+
+        val matches = trie.findWordsByPrefix("pro")
+        assertEquals(commonPrefixList.size, matches.size)
+        assertEquals(commonPrefixList.sorted(), matches.sorted())
     }
 
     @Test

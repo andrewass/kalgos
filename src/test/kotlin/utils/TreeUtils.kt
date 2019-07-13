@@ -4,14 +4,15 @@ import datastructures.tree.BinarySearchTree
 import implementations.BinaryTreeNodeImpl
 import java.math.BigInteger
 import java.util.*
+import java.util.Collections.shuffle
 import java.util.stream.Stream
 import java.util.stream.Stream.*
 import kotlin.streams.toList
 
-fun createBinarySearchTree(treeSize : Int): BinarySearchTree {
+fun createBinarySearchTree(treeSize: Int): BinarySearchTree {
     val binarySearchTree = BinarySearchTree()
     val primeNumbers = findNthFirstPrimeNumbers(treeSize.toLong())
-    Collections.shuffle(primeNumbers)
+    shuffle(primeNumbers)
     primeNumbers.forEach { binarySearchTree.insertNode(BinaryTreeNodeImpl(it, it.toLong())) }
 
     return binarySearchTree

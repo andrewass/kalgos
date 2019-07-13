@@ -1,6 +1,7 @@
 package datastructures.string
 
 import entities.TrieNode
+import java.lang.StringBuilder
 
 /**
  * A class representing a Trie data structure. Composed by connecting multiple [TrieNode]
@@ -50,7 +51,31 @@ class Trie {
      * @return a list containing all the words with the given prefix
      */
     fun findWordsByPrefix(prefix: String): List<String> {
-        return mutableListOf()
+        val matches = mutableListOf<String>()
+        var currentNode = rootNode
+        for (letter in prefix.toLowerCase()) {
+            currentNode = currentNode.children[letter] ?: return matches
+        }
+        if(currentNode.isEndOfWord){
+            matches.add(prefix)
+        }
+        for (child in currentNode.children.values) {
+            constructCommonPrefixWords(child, StringBuilder(prefix), matches)
+        }
+        return matches
+    }
+
+    /**
+     *
+     */
+    private fun constructCommonPrefixWords(node: TrieNode, word: StringBuilder, matches: MutableList<String>) {
+        val wordBuilder = word.append(node.letter)
+        if (node.isEndOfWord) {
+            matches.add(wordBuilder.toString())
+        }
+        for (child in node.children.values) {
+            constructCommonPrefixWords(child, wordBuilder, matches)
+        }
     }
 
     /**
