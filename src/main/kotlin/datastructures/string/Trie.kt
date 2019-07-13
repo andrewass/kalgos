@@ -34,7 +34,7 @@ class Trie {
      * @param word the word searched for in the Trie
      * @return true if the Trie contains the word, else false
      */
-    fun findWord(word : String) : Boolean {
+    fun findWord(word: String): Boolean {
         var currentNode = rootNode
 
         for (letter in word.toLowerCase()) {
@@ -49,7 +49,7 @@ class Trie {
      * @param prefix word used as prefix
      * @return a list containing all the words with the given prefix
      */
-    fun findWordsByPrefix(prefix : String) : List<String> {
+    fun findWordsByPrefix(prefix: String): List<String> {
         return mutableListOf()
     }
 
@@ -59,15 +59,35 @@ class Trie {
      * @param word word to the removed
      */
     fun removeWord(word: String) {
-
+        remove(rootNode, 0, word)
     }
 
-    private fun remove(node : TrieNode, index : Int, word : String) : Boolean{
-        val letter = word[index]
-        val childNode = node.children[letter] ?: return false
-        val shouldDeleteNode = remove(childNode, index+1, word)
-        return false
+    /**
+     * Recursively deciding whether we can remove a child node for a given node
+     *
+     * @param node current node
+     * @param index current index of the word to be removed
+     * @param word word to be removed from the Trie
+     * @return true if a given child node may be removed, else false
+     */
+    private fun remove(node: TrieNode, index: Int, word: String): Boolean {
+        if (index == word.length) {
+            return when {
+                !node.isEndOfWord -> false
+                else -> {
+                    node.isEndOfWord = false
+                    node.children.isEmpty()
+                }
+            }
+        }
+        val childNode = node.children[word[index]] ?: return false
+        val canDeleteChild = remove(childNode, index + 1, word) && !childNode.isEndOfWord
+        return when {
+            canDeleteChild -> {
+                node.children.remove(word[index])
+                node.children.isEmpty()
+            }
+            else -> false
+        }
     }
-
-
 }

@@ -22,7 +22,7 @@ class BinarySearchTree {
         var leafParent: BinaryTreeNode? = null
         while (currentNode != null) {
             leafParent = currentNode
-            currentNode = if (lessThanCurrentNode(newNode, currentNode)) {
+            currentNode = if (newNode.getValue() < currentNode.getValue()) {
                 currentNode.leftChild
             } else {
                 currentNode.rightChild
@@ -31,7 +31,7 @@ class BinarySearchTree {
         newNode.parent = leafParent
         when {
             leafParent == null -> rootNode = newNode
-            lessThanCurrentNode(newNode, leafParent) -> leafParent.leftChild = newNode
+            newNode.getValue() < leafParent.getValue() -> leafParent.leftChild = newNode
             else -> leafParent.rightChild = newNode
         }
     }
@@ -60,7 +60,11 @@ class BinarySearchTree {
     }
 
     /**
+     * Search and retrieve a [BinaryTreeNode] from the tree
      *
+     * @param node current root of a subtree'
+     * @param searchId id of the node searched for
+     * @return the node matching the id, else null if no match found
      */
     fun getNode(node: BinaryTreeNode?, searchId: Long): BinaryTreeNode? {
         return when {
@@ -118,7 +122,9 @@ class BinarySearchTree {
     }
 
     /**
+     * Collects a list with [BinaryTreeNode] in ascending order
      *
+     * @return a list of nodes in ascending order
      */
     fun inOrderList(): List<BinaryTreeNode> {
         val inOrderList = LinkedList<BinaryTreeNode>()
@@ -127,7 +133,10 @@ class BinarySearchTree {
     }
 
     /**
+     * Helper function for collecting the in-order list of [BinaryTreeNode]
      *
+     * @param node current node
+     * @return a linked list storing the nodes
      */
     private fun fillInOrderList(node: BinaryTreeNode?, inOrderList: LinkedList<BinaryTreeNode>) {
         if (node != null) {
@@ -135,12 +144,5 @@ class BinarySearchTree {
             inOrderList.addLast(node)
             fillInOrderList(node.rightChild, inOrderList)
         }
-    }
-
-    /**
-     *
-     */
-    private fun lessThanCurrentNode(newNode: BinaryTreeNode, currentNode: BinaryTreeNode): Boolean {
-        return newNode.getValue() < currentNode.getValue()
     }
 }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
-class TrieTest {
+class   TrieTest {
 
     @Test
     fun shouldAddWordsToTrieWithoutErrors() {
@@ -52,15 +52,33 @@ class TrieTest {
     }
 
     @Test
-    fun shouldDeletePreviouslyStoredWord(){
-        val trie = constructTrie()
-        trie.removeWord("Trie")
-        trie.removeWord("representing")
-        trie.removeWord("a")
+    fun shouldPerformRemovalOfNonInsertedWordsWithoutErrors(){
+        val trie = Trie()
+        trie.removeWord("program")
+    }
 
-        assertFalse(trie.findWord("Trie"))
-        assertFalse(trie.findWord("representing"))
-        assertFalse(trie.findWord("a"))
+    @Test
+    fun shouldDeleteSubsetOfPreviouslyStoredWords(){
+        val trie = Trie()
+        trie.addWord("program")
+        trie.addWord("pro")
+        trie.addWord("provision")
+        trie.addWord("programming")
+        trie.addWord("programmer")
+        trie.addWord("programmable")
+
+        trie.removeWord("provision")
+        trie.removeWord("program")
+        trie.removeWord("pro")
+        trie.removeWord("programming")
+
+        assertFalse(trie.findWord("programming"))
+        assertFalse(trie.findWord("provision"))
+        assertFalse(trie.findWord("pro"))
+        assertFalse(trie.findWord("program"))
+
+        assertTrue(trie.findWord("programmer"))
+        assertTrue(trie.findWord("programmable"))
     }
 
     private fun constructTrie(): Trie {
