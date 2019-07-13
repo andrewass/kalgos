@@ -9,7 +9,7 @@ class KmpAlgorithmTest {
     fun shouldReturnListWithCorrectSizeAndIndices() {
         val text = "AABAACAABAAB BBAAAABAACAABAABBBBBAABAACAABAA"
         val pattern = "AABAACAABAA"
-        val matches = kmpSearch(txt = text, pat = pattern)
+        val matches = kmpSearch(text = text, pattern = pattern)
         assertEquals(3, matches.size)
         assertEquals(listOf(0, 17, 33), matches)
     }
@@ -18,7 +18,7 @@ class KmpAlgorithmTest {
     fun shouldReturnListWithSizeEqualsToText() {
         val text = "AAAAAA"
         val pattern = "A"
-        val matches = kmpSearch(txt = text, pat = pattern)
+        val matches = kmpSearch(text = text, pattern = pattern)
         assertEquals(6, matches.size)
         assertEquals(listOf(0, 1, 2, 3, 4, 5), matches)
     }
@@ -27,7 +27,7 @@ class KmpAlgorithmTest {
     fun shouldReturnEmptyListWhenThereIsNoMatch() {
         val text = "abcdefghijklmnop"
         val pattern = "q"
-        val matches = kmpSearch(txt = text, pat = pattern)
+        val matches = kmpSearch(text = text, pattern = pattern)
         assertEquals(0, matches.size)
     }
 
@@ -35,7 +35,7 @@ class KmpAlgorithmTest {
     fun shouldReturnEmptyListWhenThereIsNoMatchDueToCasing() {
         val text = "This is a string which does not match its pattern"
         val pattern = "PATTERN"
-        val matches = kmpSearch(txt = text, pat = pattern)
+        val matches = kmpSearch(text = text, pattern = pattern)
         assertEquals(0, matches.size)
     }
 
@@ -43,7 +43,7 @@ class KmpAlgorithmTest {
     fun shouldReturnMatchWhenIgnoringCase() {
         val text = "This is a string which does not match its pattern"
         val pattern = " PATTERN"
-        val matches = kmpSearch(txt = text, pat = pattern, caseSensitive = false)
+        val matches = kmpSearch(text = text, pattern = pattern, caseSensitive = false)
         assertEquals(1, matches.size)
         assertEquals(listOf(41), matches)
     }
@@ -52,7 +52,7 @@ class KmpAlgorithmTest {
     fun shouldReturnCorrectResultsWhenOverlappingSubstring() {
         val text = "AAAAAAAAAA"
         val pattern = "AAA"
-        val matches = kmpSearch(txt = text, pat = pattern)
+        val matches = kmpSearch(text = text, pattern = pattern)
         assertEquals(8, matches.size)
         assertEquals(listOf(0,1,2,3,4,5,6,7), matches)
     }

@@ -4,65 +4,62 @@ package algorithms.string
  * Implementation of the Knuth-Morris-Pratt algorithm, returning a list of
  * start indices where a given pattern match a given text
  *
- * @param txt the word which may contain multiple matches of a given pattern
- * @param pat the word which may exists as multiple substring in text txt
+ * @param text the word which may contain multiple matches of a given pattern
+ * @param pattern the word which may exists as multiple substring in text text
  * @param caseSensitive decides whether casing should affect equality
  * @return a list containing a list of the starting indices of each match
  */
-fun kmpSearch(txt: String, pat: String, caseSensitive: Boolean = true): List<Int> {
-    val text = if (caseSensitive) txt else txt.toLowerCase()
-    val pattern = if (caseSensitive) pat else pat.toLowerCase()
-
-    val kmpTable = createKmpTable(pattern)
+fun kmpSearch(text: String, pattern: String, caseSensitive: Boolean = true): List<Int> {
+    val txt = if (caseSensitive) text else text.toLowerCase()
+    val pat = if (caseSensitive) pattern else pattern.toLowerCase()
+    val prefixTable = createPrefixPattern(pat)
     val indicesList = mutableListOf<Int>()
+    var indT = 0
+    var indP = 0
 
-    var tInd = 0
-    var pInd = 0
-
-    while (tInd < text.length) {
-        if (pattern[pInd] == text[tInd]) {
-            tInd++
-            pInd++
-            if (pInd == pattern.length) {
-                indicesList.add(tInd - pInd)
-                pInd = kmpTable[pInd - 1]
+    while (indT < txt.length) {
+        if (pat[indP] == txt[indT]) {
+            indT++
+            indP++
+            if (indP == pat.length) {
+                indicesList.add(indT - indP)
+                indP = prefixTable[indP - 1]
             }
         } else {
-            if (pInd != 0)
-                pInd = kmpTable[pInd - 1];
+            if (indP != 0)
+                indP = prefixTable[indP - 1]
             else
-                tInd++
+                indT++
         }
     }
     return indicesList
 }
 
 /**
- * Creates the table KMP uses to decide shifts of pattern.
+ * Creates the table KMP algorithm uses to decide shifts of pattern.
  * Any cell c stores the length of longest string which is both prefix and suffix
  * in a substring of the word ranging from 0 to cell c.
  *
  * @param word the word used for constructing the table
  * @return an array storing length of longest prefix and suffix for a given index.
  */
-private fun createKmpTable(word: String): IntArray {
-    var wInd = 1
+private fun createPrefixPattern(word: String): IntArray {
+    var indW = 1
     var counter = 0
     val table = IntArray(word.length)
-
     table[0] = 0
 
-    while (wInd < word.length) {
-        if (word[wInd] == word[counter]) {
+    while (indW < word.length) {
+        if (word[indW] == word[counter]) {
             counter++
-            table[wInd] = counter
-            wInd++
+            table[indW] = counter
+            indW++
         } else {
             if (counter != 0) {
                 counter = table[counter - 1]
             } else {
-                table[wInd] = 0
-                wInd++
+                table[indW] = 0
+                indW++
             }
         }
     }
