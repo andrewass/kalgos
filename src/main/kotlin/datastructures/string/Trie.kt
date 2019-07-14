@@ -21,8 +21,9 @@ class Trie {
      */
     fun addWord(word: String) {
         var currentNode = rootNode
+        val wordLowerCase = word.toLowerCase()
 
-        for (letter in word.toLowerCase()) {
+        for (letter in wordLowerCase) {
             currentNode = currentNode.children
                     .computeIfAbsent(letter) { TrieNode(letter) }
         }
@@ -36,31 +37,33 @@ class Trie {
      * @return true if the Trie contains the word, else false
      */
     fun findWord(word: String): Boolean {
+        val wordLowerCase = word.toLowerCase()
         var currentNode = rootNode
 
-        for (letter in word.toLowerCase()) {
+        for (letter in wordLowerCase) {
             currentNode = currentNode.children[letter] ?: return false
         }
         return currentNode.isEndOfWord
     }
 
     /**
-     * Find all the words with a common prefix
+     * Find all the words with a common word
      *
-     * @param prefix word used as prefix
-     * @return a list containing all the words with the given prefix
+     * @param word word used as word
+     * @return a list containing all the words with the given word
      */
-    fun findWordsByPrefix(prefix: String): List<String> {
+    fun findWordsByPrefix(word: String): List<String> {
+        val prefix = word.toLowerCase()
         val matches = mutableListOf<String>()
         var currentNode = rootNode
-        for (letter in prefix.toLowerCase()) {
+        for (letter in prefix) {
             currentNode = currentNode.children[letter] ?: return matches
         }
         if(currentNode.isEndOfWord){
-            matches.add(prefix)
+            matches.add(word)
         }
         for (child in currentNode.children.values) {
-            constructCommonPrefixWords(child, StringBuilder(prefix), matches)
+            constructCommonPrefixWords(child, StringBuilder(word), matches)
         }
         return matches
     }
@@ -84,7 +87,7 @@ class Trie {
      * @param word word to the removed
      */
     fun removeWord(word: String) {
-        remove(rootNode, 0, word)
+        remove(rootNode, 0, word.toLowerCase())
     }
 
     /**
