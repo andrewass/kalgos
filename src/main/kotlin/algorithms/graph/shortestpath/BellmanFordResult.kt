@@ -1,4 +1,3 @@
 package algorithms.graph.shortestpath
 
-class BellmanFordResult {
-}
+class BellmanFordResult(val distance: IntArray, val cycles: BooleanArray)

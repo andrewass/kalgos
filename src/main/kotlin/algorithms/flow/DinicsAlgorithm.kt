@@ -6,6 +6,11 @@ import java.util.*
 /**
  * Using [Dinic's algorithm](https://en.wikipedia.org/wiki/Dinic%27s_algorithm) to find max flow
  * of a graph
+ *
+ * @param source Node used as source
+ * @param sink Node used as sink
+ * @param nodes List of nodes in the graph
+ * @return the maximum flow of the graph
  */
 fun dinicMaxFlow(source: FlowNode, sink: FlowNode, nodes: List<FlowNode>): Long {
     var maxFlow: Long = 0
@@ -21,6 +26,11 @@ fun dinicMaxFlow(source: FlowNode, sink: FlowNode, nodes: List<FlowNode>): Long 
 
 /**
  * Finding blocking flow using a Depth First Search
+ *
+ * @param node Current node visited in the graph
+ * @sink sink Node used as sink
+ * @flow Current flow
+ * @return the amount flow possible to pass through an edge from current node
  */
 private fun sendFlow(node: FlowNode, sink: FlowNode, flow: Long): Long {
     if (node == sink) {
@@ -42,6 +52,11 @@ private fun sendFlow(node: FlowNode, sink: FlowNode, flow: Long): Long {
 
 /**
  * Performing a Breadth First Search to construct the level graph
+ *
+ * @param source Node used as source
+ * @param sink Node used as sink
+ * @param nodes List of nodes the graph
+ * @return true if sink node is reachable from the level graph, else false
  */
 private fun constructLevelGraph(source: FlowNode, sink: FlowNode, nodes: List<FlowNode>): Boolean {
     for (node in nodes) {

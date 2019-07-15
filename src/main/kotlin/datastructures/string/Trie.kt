@@ -68,7 +68,11 @@ class Trie {
     }
 
     /**
+     * Construct words with a common prefix . Words are built with [StringBuilder], and added to a list when complete.
      *
+     * @param node Current node in the Trie
+     * @param word Current prefix of a word
+     * @param matches List storing all the words with a given common prefix
      */
     private fun constructCommonPrefixWords(node: TrieNode, word: StringBuilder, matches: MutableList<String>) {
         val wordBuilder = word.append(node.letter)
