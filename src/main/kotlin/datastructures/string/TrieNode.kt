@@ -1,4 +1,4 @@
-package entities
+package datastructures.string
 
 class TrieNode(val letter: Char) {
 

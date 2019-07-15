@@ -1,4 +1,4 @@
-package entities
+package datastructures.tree
 
 interface BinaryTreeNode {
 

@@ -1,6 +1,6 @@
 package implementations
 
-import entities.BinaryTreeNode
+import datastructures.tree.BinaryTreeNode
 
 class BinaryTreeNodeImpl(private val value : Int, private val id : Long) : BinaryTreeNode {
 

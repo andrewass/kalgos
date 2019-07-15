@@ -1,6 +1,5 @@
 package datastructures.string
 
-import entities.TrieNode
 import java.lang.StringBuilder
 
 /**
