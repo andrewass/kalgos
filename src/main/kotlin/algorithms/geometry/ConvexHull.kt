@@ -5,8 +5,8 @@ import java.lang.Math.pow
 import java.util.*
 
 /**
- * Finding the Convex Hull of a set of points. Implementing [Graham scan algorithm]
- * (https://en.wikipedia.org/wiki/Graham_scan)
+ * Finding the Convex Hull of a set of points.
+ * Implementing [Graham scan algorithm](https://en.wikipedia.org/wiki/Graham_scan)
  *
  * @param points List of all the points in the plane
  * @return list of all the points included in the Convex Hull, in counterclockwise order
@@ -23,15 +23,15 @@ fun convexHull(points: List<Point>): List<Point> {
         hull.addAll(sortedPoints)
         return hull
     }
-    hull.addFirst(sortedPoints[0])
+    hull.addLast(sortedPoints[0])
 
     for (i in 1 until sortedPoints.size) {
         while (pointNotCausingCounterClockwiseTurn(sortedPoints[i], hull)) {
-            hull.remove()
+            hull.removeLast()
         }
-        hull.addFirst(sortedPoints[i])
+        hull.addLast(sortedPoints[i])
     }
-    return hull.reversed()
+    return hull
 }
 
 /**
@@ -42,9 +42,9 @@ fun convexHull(points: List<Point>): List<Point> {
  * @return true if the addition of the current point does not cause a counterclockwise shift. Else false
  */
 private fun pointNotCausingCounterClockwiseTurn(point: Point, hull: LinkedList<Point>): Boolean {
-    val top = hull.remove()
-    val prevTop = hull.first()
-    hull.addFirst(top)
+    val top = hull.removeLast()
+    val prevTop = hull.last()
+    hull.addLast(top)
 
     val firstProduct = (top.x - prevTop.x) * (point.y - prevTop.y)
     val secondProduct = (top.y - prevTop.y) * (point.x - prevTop.x)
