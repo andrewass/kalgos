@@ -9,4 +9,6 @@ interface SetNode {
     var size: Int
 
     var rank : Int
+
+    var sum : Long
 }
