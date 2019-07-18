@@ -2,14 +2,14 @@ package datastructures.set
 
 /**
  * Implementation of the the
- * [Disjoint Set / Union Find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) data structure.
+ * [Disjoint SetNode / Union Find](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) data structure.
  */
 class DisjointSet {
 
-    private val sets = mutableListOf<Set>()
+    private val sets = mutableListOf<SetNode>()
 
-    fun addSet(set: Set) {
-        sets.add(set)
+    fun addSet(setNode: SetNode) {
+        sets.add(setNode)
     }
 
     /**
@@ -24,30 +24,27 @@ class DisjointSet {
 
         when {
             setX == setY -> return
-            setX.size < setY.size -> {
-                setX.parent = setY
-                setY.size += setX.size
-                setY.sum += setX.sum
-                setX.sum = 0L
-                setX.size = 0
-            }
-            else -> {
+            setX.rank > setY.rank -> {
                 setY.parent = setX
                 setX.size += setY.size
-                setX.sum += setY.sum
-                setY.sum = 0L
-                setY.size = 0
+            }
+            else -> {
+                setX.parent = setY
+                setY.size += setX.size
+                if(setY.rank == setX.rank){
+                    setY.rank++
+                }
             }
         }
     }
 
     /**
-     * Finds the root node of the set which a node with a given id belongs
+     * Finds the root node of the set which an item with a given id belongs
      *
      * @id Id of the node
      */
-    fun find(id: Int): Set {
-        if (sets[id].parent.id != id) {
+    fun find(id: Int): SetNode {
+        if (sets[id].parent.id != sets[id].id) {
             sets[id].parent = find(sets[id].parent.id)
         }
         return sets[id].parent

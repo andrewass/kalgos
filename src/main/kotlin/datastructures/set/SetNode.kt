@@ -1,12 +1,12 @@
 package datastructures.set
 
-interface Set {
+interface SetNode {
 
     val id: Int
 
-    var parent: Set
+    var parent: SetNode
 
     var size: Int
 
-    var sum: Long
+    var rank : Int
 }
