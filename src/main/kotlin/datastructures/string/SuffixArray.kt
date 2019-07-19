@@ -40,7 +40,7 @@ class SuffixArray(private val word: String) {
      */
     private fun constructSuffixArray() {
         var count = 1
-        val logCeil: Int = ceil(log2(word.length.toDouble())).toInt()
+        val logCeil = ceil(log2(n.toDouble())).toInt()
 
         val grid = Array(logCeil + 1) { IntArray(n) }
         for (i in word.indices) {
@@ -56,8 +56,9 @@ class SuffixArray(private val word: String) {
             sort(sa)
 
             for (i in 0 until n) {
-                grid[k][sa[i].pos] = if (i > 0 && sa[i].rank[0] == sa[i - 1].rank[0] && sa[i].rank[1] == sa[i - 1].rank[1])
-                    grid[k][sa[i - 1].pos] else i
+                grid[k][sa[i].pos] =
+                        if (i > 0 && sa[i].rank[0] == sa[i - 1].rank[0] && sa[i].rank[1] == sa[i - 1].rank[1])
+                            grid[k][sa[i - 1].pos] else i
             }
             count *= 2
         }

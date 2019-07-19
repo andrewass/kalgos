@@ -10,6 +10,7 @@ class SuffixArrayTest {
         val suffixArray = SuffixArray("bananahavana")
         suffixArray.constructLcpArray()
         val longestSubstrings: Set<String> = suffixArray.getLongestCommonSubstrings()
+
         assertEquals(3, suffixArray.getLongestCommonSubstringLength())
         assertEquals(1, longestSubstrings.size)
         assertEquals("ana", longestSubstrings.first())
@@ -22,6 +23,7 @@ class SuffixArrayTest {
         val suffixArray = SuffixArray("abcdefgh")
         suffixArray.constructLcpArray()
         val longestSubstrings: Set<String> = suffixArray.getLongestCommonSubstrings()
+
         assertEquals(0, suffixArray.getLongestCommonSubstringLength())
         assertEquals(0, longestSubstrings.size)
     }
@@ -32,6 +34,7 @@ class SuffixArrayTest {
         suffixArray.constructLcpArray()
         println(suffixArray.toString())
         val longestSubstrings = suffixArray.getLongestCommonSubstrings()
+
         assertEquals(7, suffixArray.getLongestCommonSubstringLength())
         assertEquals(1, longestSubstrings.size)
         assertEquals("aaaaaaa", longestSubstrings.first())
