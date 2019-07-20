@@ -1,10 +1,9 @@
 package datastructures.string
 
-import java.util.Arrays.sort
+import java.util.*
 import kotlin.math.ceil
 import kotlin.math.log2
 import kotlin.math.max
-
 
 /**
  * Data structure representing a [Suffix Array](https://en.wikipedia.org/wiki/Suffix_array)
@@ -18,6 +17,13 @@ class SuffixArray(private val word: String) {
     init {
         constructSuffixArray()
     }
+
+    /**
+     * Get the lcp array
+     *
+     * @return lcp array
+     */
+    fun getlcp() = lcp
 
     /**
      * Get the index of the word for a given index of the suffix array
@@ -43,8 +49,9 @@ class SuffixArray(private val word: String) {
         val logCeil = ceil(log2(n.toDouble())).toInt()
 
         val grid = Array(logCeil + 1) { IntArray(n) }
+        val minChar = word.min()
         for (i in word.indices) {
-            grid[0][i] = word[i] - 'a'
+            grid[0][i] = word[i] - minChar!!
         }
 
         for (k in 1..logCeil) {
@@ -53,7 +60,7 @@ class SuffixArray(private val word: String) {
                 sa[i].rank[1] = if (i + count < word.length) grid[k - 1][i + count] else -1
                 sa[i].pos = i
             }
-            sort(sa)
+            Arrays.sort(sa)
 
             for (i in 0 until n) {
                 grid[k][sa[i].pos] =
