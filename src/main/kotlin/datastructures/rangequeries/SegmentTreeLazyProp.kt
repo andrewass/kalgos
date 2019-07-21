@@ -11,15 +11,15 @@ class SegmentTreeLazyProp {
     private val len: Int
 
     /**
-     * Fills the segment tree, based on input array
+     * Fills the segment tree, based on input list
      *
-     * @param array Used to construct the initial tree
+     * @param list Used to construct the initial tree
      */
-    constructor(array: IntArray) {
-        tree = LongArray(array.size * 4)
+    constructor(list: List<Int>) {
+        tree = LongArray(list.size * 4)
         lazy = LongArray(tree.size)
-        len = array.size
-        build(array = array)
+        len = list.size
+        build(list = list)
     }
 
     /**
@@ -30,24 +30,24 @@ class SegmentTreeLazyProp {
     constructor(size: Int) {
         tree = LongArray(size * 4)
         lazy = LongArray(tree.size)
-        len = tree.size
+        len = size
     }
 
     /**
-     * Builds the segment tree with values from input array.
+     * Builds the segment tree with values from input list.
      *
-     * @param array Int array used to fill the tree
+     * @param list Int list used to fill the tree
      * @param ind Current index / node of the segment tree
      * @param segLeft Left end of current segment
      * @param segRight Right end of current segment
      */
-    private fun build(array: IntArray, ind: Int = 1, segLeft: Int = 1, segRight: Int = len) {
+    private fun build(list: List<Int>, ind: Int = 1, segLeft: Int = 1, segRight: Int = len) {
         if (segLeft == segRight) {
-            tree[ind] = array[segLeft].toLong()
+            tree[ind] = list[segLeft-1].toLong()
         } else {
             val mid = (segLeft + segRight) / 2
-            build(array, ind * 2, segLeft, mid)
-            build(array, ind * 2 + 1, mid + 1, segRight)
+            build(list, ind * 2, segLeft, mid)
+            build(list, ind * 2 + 1, mid + 1, segRight)
             tree[ind] = tree[ind * 2] + tree[ind * 2 + 1]
         }
     }
@@ -63,7 +63,7 @@ class SegmentTreeLazyProp {
      * @param right Right end of the update range
      */
     fun update(ind: Int = 1, value: Long, segLeft: Int = 1, segRight: Int = len, left: Int, right: Int) {
-        pushToChildren(ind, segLeft, segRight)
+        propagateToChildren(ind, segLeft, segRight)
         if (segLeft > right || segRight < left || segLeft > segRight) {
             return
         }
@@ -95,7 +95,7 @@ class SegmentTreeLazyProp {
         if (segLeft > right || segRight < left || segLeft > segRight) {
             return 0L
         }
-        pushToChildren(ind, segLeft, segRight)
+        propagateToChildren(ind, segLeft, segRight)
         if (left <= segLeft && segRight <= right) {
             return tree[ind]
         }
@@ -113,10 +113,10 @@ class SegmentTreeLazyProp {
      * @param segLeft Left end of current segment
      * @param segRight Right end of current segment
      */
-    private fun pushToChildren(ind: Int, left: Int, right: Int) {
+    private fun propagateToChildren(ind: Int, segLeft: Int, segRight: Int) {
         if (lazy[ind] != 0L) {
-            tree[ind] += lazy[ind] * (right - left + 1)
-            if (left != right) {
+            tree[ind] += lazy[ind] * (segRight - segLeft + 1)
+            if (segLeft != segRight) {
                 lazy[ind * 2] += lazy[ind]
                 lazy[ind * 2 + 1] += lazy[ind]
             }
