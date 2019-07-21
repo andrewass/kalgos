@@ -3,7 +3,7 @@ package datastructures.tree
 import java.util.*
 
 /**
- * An implementation of a Binary Search Tree, using [BinaryTreeNode] as tree nodes
+ * An implementation of a [Binary Search Tree](https://en.wikipedia.org/wiki/Binary_search_tree)
  */
 class BinarySearchTree {
 
@@ -11,7 +11,7 @@ class BinarySearchTree {
         private set
 
     /**
-     * Inserts a new [BinaryTreeNode], adding it to the tree as a leaf where its position is
+     * Inserts a new node, adding it to the tree as a leaf where its position is
      * based on its comparison value.
      *
      * @param newNode the node being inserted into the tree
@@ -36,7 +36,7 @@ class BinarySearchTree {
     }
 
     /**
-     * Deletes a [BinaryTreeNode] from the tree.
+     * Deletes a node from the tree.
      *
      * @param delNode the node being deleted from the tree
      */
@@ -59,7 +59,7 @@ class BinarySearchTree {
     }
 
     /**
-     * Search and retrieve a [BinaryTreeNode] from the tree
+     * Search and retrieve a node from the tree
      *
      * @param node current root of a subtree'
      * @param searchId id of the node searched for
@@ -93,7 +93,7 @@ class BinarySearchTree {
     }
 
     /**
-     * Find the [BinaryTreeNode] with the lowest value in the tree
+     * Find the node with the lowest value in the tree
      *
      * @param root representing a selected root node from the entire tree, or a sub part of it.
      * @return the node with the lowest value in the tree. Null if tree is empty
@@ -107,7 +107,7 @@ class BinarySearchTree {
     }
 
     /**
-     * Find the [BinaryTreeNode] with the largest value in the tree
+     * Find the node with the largest value in the tree
      *
      * @param root representing a selected root node from the entire tree, or a sub part of it.
      * @return the node with the largest value in the tree. Null if tree is empty

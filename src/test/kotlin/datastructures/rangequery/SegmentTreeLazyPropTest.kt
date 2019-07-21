@@ -1,4 +1,4 @@
-package datastructures.rangequeries
+package datastructures.rangequery
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals

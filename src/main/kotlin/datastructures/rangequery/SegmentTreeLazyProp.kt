@@ -1,4 +1,4 @@
-package datastructures.rangequeries
+package datastructures.rangequery
 
 /**
  * Segment Tree with Lazy Propagation. Current implementation finds the sum of a range.

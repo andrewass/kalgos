@@ -1,4 +1,4 @@
-package datastructures.rangequeries
+package datastructures.rangequery
 
 /**
  * An implementation of a Binary Indexed Tree / Fenwick Tree. Used to
