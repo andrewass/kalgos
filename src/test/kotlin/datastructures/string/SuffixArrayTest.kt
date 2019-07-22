@@ -32,7 +32,6 @@ class SuffixArrayTest {
     fun shouldFindLongestCommonSubstringInWordWithOneUniqueCharacter() {
         val suffixArray = SuffixArray("aaaaaaaa")
         suffixArray.constructLcpArray()
-        println(suffixArray.toString())
         val longestSubstrings = suffixArray.getLongestCommonSubstrings()
 
         assertEquals(7, suffixArray.getLongestCommonSubstringLength())
