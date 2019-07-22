@@ -34,4 +34,4 @@ Algorithms and Data Structures written in Kotlin
 
 ### Game Theory
 
-- [Nim w/ Sprague–Grundy theorem ]()
+- [Nim w/ Sprague–Grundy theorem ](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/gametheory/nim.kt)
