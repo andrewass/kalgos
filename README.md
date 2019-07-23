@@ -32,6 +32,11 @@ Algorithms and Data Structures written in Kotlin
 
 - [Convex Hull w/ Graham scan](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/ConvexHull.kt)
 
+### Combinatorics
+
+- [Binomial Coefficient]()
+
 ### Game Theory
 
 - [Nim w/ Sprague–Grundy theorem ]()
+

@@ -31,7 +31,6 @@ fun decideNimWinner(heaps: List<Int>, removes: List<Int> = emptyList(), memo: Ar
  * @param removesPerTurn A list of valid amount of items which can be removed at any turn of the game
  * @param memo A memoization list used to avoid recalculations of grundy numbers
  * @param minVal The minimum amount of items on a heap for any move to be possible
- *
  * @return the grundy number of the given state of a heap
  */
 private fun getGrundyNumber(itemsInHeap: Int, removesPerTurn: List<Int>, memo: Array<Int>, minVal: Int): Int {
@@ -60,7 +59,6 @@ private fun getGrundyNumber(itemsInHeap: Int, removesPerTurn: List<Int>, memo: A
  *
  * @param set A set of non-negative integers
  * @return smallest non-negative integer not present in the set
- *
  */
 private fun calculateMex(set: Set<Int>): Int {
     val sortedPositiveList = set.sorted()

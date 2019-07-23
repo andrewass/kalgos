@@ -7,6 +7,8 @@ import kotlin.math.max
 
 /**
  * Data structure representing a [Suffix Array](https://en.wikipedia.org/wiki/Suffix_array)
+ *
+ * @param word Word used when constructing the array
  */
 class SuffixArray(private val word: String) {
 
