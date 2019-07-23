@@ -34,7 +34,7 @@ Algorithms and Data Structures written in Kotlin
 
 ### Combinatorics
 
-- [Binomial Coefficient]()
+- [Binomial Coefficient](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/combinatorics/binomialCoefficient.kt)
 
 ### Game Theory
 
