@@ -1,5 +1,7 @@
 package entities
 
+import com.sun.corba.se.impl.orbutil.graph.Graph
+
 interface GraphNode {
 
     val id : Int
@@ -11,6 +13,10 @@ interface GraphNode {
     var childrenList : MutableList<GraphNode>
 
     val edges : MutableList<GraphEdge>
+
+    var maxDistance : Int
+
+    var previous : GraphNode
 
     fun addChild(child : GraphNode)
 

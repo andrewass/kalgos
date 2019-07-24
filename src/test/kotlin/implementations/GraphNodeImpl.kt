@@ -5,6 +5,8 @@ import entities.GraphNode
 
 class GraphNodeImpl(override val id: Int) :  GraphNode {
 
+    override var maxDistance: Int = 0
+
     override var partlyProcessed = false
 
     override var processed = false
