@@ -29,7 +29,7 @@ fun depthFirstSearch(nodes: List<GraphNode>): LinkedList<GraphNode> {
  */
 private fun visitChildNodes(node: GraphNode, linkedList: LinkedList<GraphNode>) {
     node.partlyProcessed = true
-    for (childNode in node.childrenList) {
+    for (childNode in node.children) {
         if (isUnprocessed(childNode)) {
             visitChildNodes(childNode, linkedList)
         }

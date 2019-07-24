@@ -6,6 +6,9 @@ import java.util.*
 /**
  * Find the shortest path from the source node to every other node in the graph,
  * by [Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+ *
+ * @param nodes All nodes from the graph
+ * @param source The node used as source node
  */
 fun dijkstraShortestPath(nodes: List<GraphNode>, source: GraphNode) {
     val queue = TreeSet<GraphNode>(compareBy { it.maxDistance })

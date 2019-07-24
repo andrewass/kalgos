@@ -10,7 +10,7 @@ interface GraphNode {
 
     var processed : Boolean
 
-    var childrenList : MutableList<GraphNode>
+    var children : MutableList<GraphNode>
 
     val edges : MutableList<GraphEdge>
 
