@@ -6,7 +6,7 @@ Algorithms and Data Structures written in Kotlin
 ### String
 
 - [Trie](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/string/Trie.kt)
-- [Knuth–Morris–Pratt algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/KmpAlgorithm.kt)
+- [Knuth–Morris–Pratt algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/kmpAlgorithm.kt)
 - [Rabin-Karp algorihtm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/rabinKarp.kt)
 - [Suffix Array w/ LCP Array](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/string/SuffixArray.kt)
 
@@ -17,9 +17,10 @@ Algorithms and Data Structures written in Kotlin
 
 ### Graph
 
-- [Depth First Search w/ Topological ordering](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/DepthFirstSearch.kt)
-- [Bellman-Ford algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/BellmanFord.kt)
-- [Max Flow w/ Dinic's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/flow/DinicsAlgorithm.kt)
+- [Depth First Search w/ Topological ordering](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/depthFirstSearch.kt)
+- [Bellman-Ford algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/bellmanFord.kt)
+- [Dijkstra's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/dijkstra.kt)
+- [Max Flow w/ Dinic's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/flow/dinicsAlgorithm.kt)
 
 ### Tree
 
@@ -31,7 +32,7 @@ Algorithms and Data Structures written in Kotlin
 
 ### Geometry
 
-- [Convex Hull w/ Graham scan](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/ConvexHull.kt)
+- [Convex Hull w/ Graham scan](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/convexHull.kt)
 
 ### Combinatorics
 
