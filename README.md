@@ -12,8 +12,8 @@ Algorithms and Data Structures written in Kotlin
 
 ### Range Query
 
-- [Binary Indexed Tree / Fenwick Tree](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/rangequeries/BinaryIndexedTree.kt)
-- [Segment Tree w/ Lazy Propagation](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/rangequeries/SegmentTreeLazyProp.kt)
+- [Binary Indexed Tree / Fenwick Tree](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/rangequery/BinaryIndexedTree.kt)
+- [Segment Tree w/ Lazy Propagation](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/rangequery/SegmentTreeLazyProp.kt)
 
 ### Graph
 
