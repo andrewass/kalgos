@@ -7,7 +7,7 @@ Algorithms and Data Structures written in Kotlin
 
 - [Trie](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/string/Trie.kt)
 - [Knuth–Morris–Pratt algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/KmpAlgorithm.kt)
-- [Rabin-Karp algorihtm]()
+- [Rabin-Karp algorihtm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/rabinKarp.kt)
 - [Suffix Array w/ LCP Array](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/string/SuffixArray.kt)
 
 ### Range Query
