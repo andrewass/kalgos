@@ -135,7 +135,7 @@ class BinarySearchTree {
      * Helper function for collecting the in-order list of [BinaryTreeNode]
      *
      * @param node current node
-     * @return a linked list storing the nodes
+     * @param inOrderList A linked list storing the nodes of the tree
      */
     private fun fillInOrderList(node: BinaryTreeNode?, inOrderList: LinkedList<BinaryTreeNode>) {
         if (node != null) {
