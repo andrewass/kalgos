@@ -5,7 +5,6 @@ import implementations.GraphNodeImpl
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-//TODO : Add tests
 class DijkstraTest {
 
     @Test

@@ -10,7 +10,7 @@ interface GraphNode {
 
     var processed : Boolean
 
-    var children : MutableList<GraphNode>
+    var neighbours : MutableList<GraphNode>
 
     val edges : MutableList<GraphEdge>
 
@@ -18,7 +18,12 @@ interface GraphNode {
 
     var previous : GraphNode
 
-    fun addChild(child : GraphNode)
+    //For use with Strongly Connected Components
+    var index : Int
+    var lowLink : Int
+    var onStack : Boolean
 
-    fun addChildren(children : List<GraphNode>)
+    fun addNeighbour(child : GraphNode)
+
+    fun addNeighbours(children : List<GraphNode>)
 }

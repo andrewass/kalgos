@@ -21,7 +21,7 @@ fun depthFirstSearch(nodes: List<GraphNode>): LinkedList<GraphNode> {
 }
 
 /**
- * Process all children of given node recursively. After each children are processed, the node is
+ * Process all neighbours of given node recursively. After each neighbours are processed, the node is
  * add to the front of a linked list.
  *
  * @param node the node to be processed
@@ -29,7 +29,7 @@ fun depthFirstSearch(nodes: List<GraphNode>): LinkedList<GraphNode> {
  */
 private fun visitChildNodes(node: GraphNode, linkedList: LinkedList<GraphNode>) {
     node.partlyProcessed = true
-    for (childNode in node.children) {
+    for (childNode in node.neighbours) {
         if (isUnprocessed(childNode)) {
             visitChildNodes(childNode, linkedList)
         }
