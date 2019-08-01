@@ -25,6 +25,7 @@ Algorithms and Data Structures written in Kotlin
 ### Tree
 
 - [Binary Search Tree](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/tree/BinarySearchTree.kt)
+- [Treap](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/tree/Treap.kt)
 
 ### Set
 
