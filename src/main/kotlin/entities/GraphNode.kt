@@ -23,7 +23,7 @@ interface GraphNode {
     var lowLink : Int
     var onStack : Boolean
 
-    fun addNeighbour(child : GraphNode)
+    fun addNeighbour(neighbour : GraphNode)
 
-    fun addNeighbours(children : List<GraphNode>)
+    fun addNeighbours(neighbours : List<GraphNode>)
 }

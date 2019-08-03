@@ -4,6 +4,13 @@ import entities.GraphNode
 import java.lang.Integer.min
 import java.util.*
 
+/**
+ * Implementation of
+ * [Tarjan's algorithm](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm)
+ * for finding the strongly connected components of a graph
+ *
+ * @param nodes The graph represented as list of nodes
+ */
 class SccTarjan(nodes: List<GraphNode>) {
 
     private var index = 0
@@ -18,8 +25,18 @@ class SccTarjan(nodes: List<GraphNode>) {
         }
     }
 
+    /**
+     * Get the list of strongly connected components
+     *
+     * @return the list of strongly connected components
+     */
     fun getStronglyConnectedComponents() = components
 
+    /**
+     * Identifies the strongly connected components by a DFS and the use of a stack
+     *
+     * @param node Current node
+     */
     private fun strongConnect(node: GraphNode) {
         node.index = index
         node.lowLink = index
@@ -39,11 +56,11 @@ class SccTarjan(nodes: List<GraphNode>) {
         //If current node is root of a SCC, gather all nodes of the component
         if (node.lowLink == node.index) {
             val component = ConnectedComponent()
-            while (stack.isNotEmpty()) {
+            do {
                 val curr = stack.pollFirst()
                 curr.onStack = false
                 component.nodes.add(curr)
-            }
+            } while (curr != node)
             components.add(component)
         }
     }

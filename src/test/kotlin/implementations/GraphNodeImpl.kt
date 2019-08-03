@@ -23,12 +23,12 @@ class GraphNodeImpl(override val id: Int) :  GraphNode {
 
     override val edges = mutableListOf<GraphEdge>()
 
-    override fun addNeighbour(child: GraphNode) {
-        neighbours.add(child)
+    override fun addNeighbour(neighbour: GraphNode) {
+        neighbours.add(neighbour)
     }
 
-    override fun addNeighbours(children: List<GraphNode>) {
-        for (child in children) {
+    override fun addNeighbours(neighbours: List<GraphNode>) {
+        for (child in neighbours) {
             this.neighbours.add(child)
         }
     }
