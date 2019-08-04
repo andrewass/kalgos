@@ -21,6 +21,7 @@ Algorithms and Data Structures written in Kotlin
 - [Bellman-Ford algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/bellmanFord.kt)
 - [Dijkstra's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/dijkstra.kt)
 - [Max Flow w/ Dinic's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/flow/dinicsAlgorithm.kt)
+- [Strongly Connected Components w/ Tarjan's algorihtm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/connectedcomponents/SccTarjan.kt)
 
 ### Tree
 
