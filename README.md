@@ -20,6 +20,7 @@ Algorithms and Data Structures written in Kotlin
 - [Depth First Search w/ Topological ordering](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/depthFirstSearch.kt)
 - [Bellman-Ford algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/bellmanFord.kt)
 - [Dijkstra's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/dijkstra.kt)
+- [Floyd-Warshall algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/FloydWarshall.kt)
 - [Max Flow w/ Dinic's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/flow/dinicsAlgorithm.kt)
 - [Strongly Connected Components w/ Tarjan's algorihtm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/connectedcomponents/SccTarjan.kt)
 
