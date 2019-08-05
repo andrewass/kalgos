@@ -8,16 +8,17 @@ class FloydWarshallTest{
     @Test
     fun shouldFindCorrectMinimumDistancesBetweenPairsOfnodes(){
         val graph = constructGraph()
-        val floydWarshall = FloydWarshall(distance = graph, hasNegativeEdges = true)
 
-        assertEquals(-3.00,floydWarshall.distance(0,7))
-        assertEquals(Double.POSITIVE_INFINITY,floydWarshall.distance(7,0))
-        assertEquals(Double.NEGATIVE_INFINITY,floydWarshall.distance(0,5))
-        assertEquals(Double.POSITIVE_INFINITY,floydWarshall.distance(5,0))
-        assertEquals(Double.NEGATIVE_INFINITY,floydWarshall.distance(3,4))
-        assertEquals(Double.NEGATIVE_INFINITY,floydWarshall.distance(4,3))
-        assertEquals(0.00,floydWarshall.distance(2,2))
-        assertEquals(Double.POSITIVE_INFINITY,floydWarshall.distance(0,6))
+        floydWarshall(distance = graph, hasNegativeEdges = true)
+
+        assertEquals(-3.00,graph[0][7])
+        assertEquals(Double.POSITIVE_INFINITY,graph[7][0])
+        assertEquals(Double.NEGATIVE_INFINITY,graph[0][5])
+        assertEquals(Double.POSITIVE_INFINITY,graph[5][0])
+        assertEquals(Double.NEGATIVE_INFINITY,graph[3][4])
+        assertEquals(Double.NEGATIVE_INFINITY,graph[4][3])
+        assertEquals(0.00,graph[2][2])
+        assertEquals(Double.POSITIVE_INFINITY,graph[0][6])
     }
 
     private fun constructGraph(): Array<DoubleArray> {
