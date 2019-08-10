@@ -36,6 +36,7 @@ Algorithms and Data Structures written in Kotlin
 
 ### Geometry
 
+- [Polygon Area](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/polygonArea.kt)
 - [Convex Hull w/ Graham scan](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/convexHull.kt)
 
 ### Combinatorics
