@@ -19,6 +19,8 @@ fun floydWarshall(distance: Array<DoubleArray>, hasNegativeEdges: Boolean = fals
 
 /**
  * Update the distance between all pairs of vertices.
+ *
+ * @param distance A 2D array storing the distance between any two pairs of vertices
  */
 private fun setAllPairsDistances(distance: Array<DoubleArray>) {
     for (k in distance.indices) {
@@ -35,6 +37,8 @@ private fun setAllPairsDistances(distance: Array<DoubleArray>) {
 /**
  * Mark distance between a pair of vertices as negative infinity when a
  * negative cycle exists.
+ *
+ * @param distance A 2D array storing the distance between any two pairs of vertices
  */
 private fun markNegativeCycles(distance: Array<DoubleArray>) {
     for (k in distance.indices) {
