@@ -39,6 +39,11 @@ Algorithms and Data Structures written in Kotlin
 - [Polygon Area](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/polygonArea.kt)
 - [Convex Hull w/ Graham scan](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/convexHull.kt)
 
+### Number Theory
+
+- [Euclidean algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/number/greatestCommonDivisor.kt)
+- [Extended Euclidean algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/number/extendedEuclid.kt)
+
 ### Combinatorics
 
 - [Binomial Coefficient](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/combinatorics/binomialCoefficient.kt)
