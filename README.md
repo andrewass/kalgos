@@ -43,6 +43,7 @@ Algorithms and Data Structures written in Kotlin
 
 - [Euclidean algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/number/greatestCommonDivisor.kt)
 - [Extended Euclidean algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/number/extendedEuclid.kt)
+- [Chinese Remainder Theorem](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/number/chineseRemainderTheorem.kt)
 
 ### Combinatorics
 
