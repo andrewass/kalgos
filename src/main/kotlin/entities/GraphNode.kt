@@ -14,6 +14,8 @@ interface GraphNode {
 
     val edges : MutableList<GraphEdge>
 
+    val reverseEdges : MutableList<GraphEdge>
+
     var maxDistance : Int
 
     var previous : GraphNode

@@ -23,6 +23,8 @@ class GraphNodeImpl(override val id: Int) :  GraphNode {
 
     override val edges = mutableListOf<GraphEdge>()
 
+    override val reverseEdges = mutableListOf<GraphEdge>()
+
     override fun addNeighbour(neighbour: GraphNode) {
         neighbours.add(neighbour)
     }
@@ -41,5 +43,9 @@ class GraphNodeImpl(override val id: Int) :  GraphNode {
         for (edge in edges) {
             this.edges.add(edge)
         }
+    }
+
+    fun addReverseEdge(edge : GraphEdge){
+        reverseEdges.add(edge)
     }
 }
