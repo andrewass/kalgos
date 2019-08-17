@@ -2,15 +2,18 @@ package algorithms.graph
 
 import entities.GraphEdge
 import implementations.GraphNodeImpl
+import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 
 class EulerianPathTest {
 
     lateinit var nodes: MutableList<GraphNodeImpl>
 
-
+    @Test
     fun shouldFindEulerianPathInDirectedConnectedGraph() {
-        nodes = mutableListOf<GraphNodeImpl>()
+        nodes = mutableListOf()
+        val edgeCount = 10
 
         for (i in 0..6) {
             nodes.add(GraphNodeImpl(i))
@@ -26,9 +29,14 @@ class EulerianPathTest {
         addDirectedEdge(5,2)
         addDirectedEdge(3,5)
 
-        val path = eulerianPathDirGraph(nodes)
+        val eulerianPath = EulerianPathDirGraph(nodes, edgeCount)
+        val path = eulerianPath.getPath()
+        assertEquals(edgeCount+1, path.size)
+    }
 
-
+    @Test
+    fun shouldReturnEmptyListWhenNoEulerianPathExistsInDirectedGraph(){
+        nodes = mutableListOf()
     }
 
     fun addDirectedEdge(from: Int, to: Int) {

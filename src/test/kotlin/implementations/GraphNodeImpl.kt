@@ -19,6 +19,8 @@ class GraphNodeImpl(override val id: Int) :  GraphNode {
 
     override var onStack = false
 
+    override var visited = false
+
     override var neighbours = mutableListOf<GraphNode>()
 
     override val edges = mutableListOf<GraphEdge>()

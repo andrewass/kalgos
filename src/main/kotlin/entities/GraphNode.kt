@@ -4,6 +4,8 @@ import com.sun.corba.se.impl.orbutil.graph.Graph
 
 interface GraphNode {
 
+    var visited: Boolean
+
     val id : Int
 
     var partlyProcessed : Boolean
