@@ -43,6 +43,4 @@ class EulerianPathTest {
         nodes[from].addEdge(GraphEdge(from = nodes[from], to = nodes[to]))
         nodes[to].addReverseEdge(GraphEdge(from = nodes[from], to = nodes[to]))
     }
-
-
 }
