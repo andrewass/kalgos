@@ -24,6 +24,7 @@ Algorithms and Data Structures written in Kotlin
 - [Floyd-Warshall algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/floydWarshall.kt)
 - [Max Flow w/ Dinic's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/flow/dinicsAlgorithm.kt)
 - [Strongly Connected Components w/ Tarjan's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/connectedcomponents/SccTarjan.kt)
+- [Eulerian Path](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/EulerianPathDirGraph.kt)
 
 ### Tree
 
