@@ -4,7 +4,15 @@ import entities.GraphNode
 import java.util.*
 
 
-class EulerianPathDirGraph(val nodes: List<GraphNode>, val edgecount : Int) {
+/**
+ * Finding an [Eulerian Path](https://en.wikipedia.org/wiki/Eulerian_path) of a given graph.
+ * Designed for directed edges. Singleton nodes with no incoming or outgoing edges  are allowed
+ * in the graph for path to exists, but not two or more distinct connected components containing edges.
+ *
+ * @param nodes List of the nodes forming the graph
+ * @param edgeCount Number of edges in thee graph
+ */
+class EulerianPathDirGraph(val nodes: List<GraphNode>, val edgeCount: Int) {
 
     private var startNode: GraphNode? = null
     private var endNode: GraphNode? = null
@@ -18,10 +26,18 @@ class EulerianPathDirGraph(val nodes: List<GraphNode>, val edgecount : Int) {
         }
     }
 
+    /**
+     * Returns an Eulerian path of nodes
+     *
+     * @return a list of nodes stored in visisted order
+     */
     fun getPath() = eulerianPath
 
     /**
+     * Decides if an actual path can exist by counting in-degrees and out-degrees
+     * of each node.
      *
+     * @return true if a path can exist, else false
      */
     private fun eulerianPathCanExist(): Boolean {
         var eqDegreeNodes = 0
@@ -41,18 +57,25 @@ class EulerianPathDirGraph(val nodes: List<GraphNode>, val edgecount : Int) {
     }
 
     /**
-     *
+     * Find an Eulerian path from the graph by doing a dfs from a selected starting node.
+     * If the node count in the path is less than edge count of graph + 1, there exists multiple
+     * connected components with edges, hence no path exists.
      */
     private fun createPath() {
         if (startNode == null) {
             startNode = nodes[0]
         }
         dfs(startNode!!)
-        if(eulerianPath.size != edgecount+1){
+        if (eulerianPath.size != edgeCount + 1) {
             eulerianPath.clear()
         }
     }
 
+    /**
+     * Retrieving the actual path of the graph with recursive dfs calls.
+     *
+     * @param node Current node
+     */
     private fun dfs(node: GraphNode) {
         while (outEdgeCount[node.id] > 0) {
             val nextEdge = node.edges[--outEdgeCount[node.id]]
