@@ -38,6 +38,7 @@ Algorithms and Data Structures written in Kotlin
 ### Geometry
 
 - [Polygon Area](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/polygonArea.kt)
+- [Point in Polygon w/ Java API](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/pointInPolygon.kt)
 - [Convex Hull w/ Graham scan](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/convexHull.kt)
 
 ### Number Theory
