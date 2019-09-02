@@ -35,6 +35,10 @@ Algorithms and Data Structures written in Kotlin
 - [Binary Search Tree](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/tree/BinarySearchTree.kt)
 - [Treap](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/tree/Treap.kt)
 
+### Search
+
+- [Longest Increasing Subsequence w/ Binary Search](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/search/longestIncSubSeq.kt)
+
 ### Set
 
 - [Disjoint-Set / Union-Find](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/set/DisjointSet.kt)
