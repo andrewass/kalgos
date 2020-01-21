@@ -1,33 +1,31 @@
 package entities
 
-import com.sun.corba.se.impl.orbutil.graph.Graph
-
 interface GraphNode {
 
     var visited: Boolean
 
-    val id : Int
+    val id: Int
 
-    var partlyProcessed : Boolean
+    var partlyProcessed: Boolean
 
-    var processed : Boolean
+    var processed: Boolean
 
-    var neighbours : MutableList<GraphNode>
+    var neighbours: MutableList<GraphNode>
 
-    val edges : MutableList<GraphEdge>
+    val edges: MutableList<GraphEdge>
 
-    val reverseEdges : MutableList<GraphEdge>
+    val reverseEdges: MutableList<GraphEdge>
 
-    var maxDistance : Int
+    var maxDistance: Int
 
-    var previous : GraphNode
+    var previous: GraphNode
 
     //For use with Strongly Connected Components
-    var index : Int
-    var lowLink : Int
-    var onStack : Boolean
+    var index: Int
+    var lowLink: Int
+    var onStack: Boolean
 
-    fun addNeighbour(neighbour : GraphNode)
+    fun addNeighbour(neighbour: GraphNode)
 
-    fun addNeighbours(neighbours : List<GraphNode>)
+    fun addNeighbours(neighbours: List<GraphNode>)
 }
