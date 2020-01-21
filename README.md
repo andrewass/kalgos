@@ -10,6 +10,7 @@ Algorithms and Data Structures written in Kotlin
 - [Rabin-Karp algorihtm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/rabinKarp.kt)
 - [Aho-Corasick algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/AhoCorasick.kt)
 - [Suffix Array w/ LCP Array](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/string/SuffixArray.kt)
+- [Hamming Distance](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/HammingDistance.kt)
 
 ### Range Query
 
