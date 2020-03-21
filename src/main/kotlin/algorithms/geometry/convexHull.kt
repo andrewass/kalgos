@@ -3,6 +3,7 @@ package algorithms.geometry
 import java.lang.Math.atan2
 import java.lang.Math.pow
 import java.util.*
+import kotlin.math.pow
 
 /**
  * Finding the Convex Hull of a set of points.
@@ -51,7 +52,7 @@ private fun pointNotCausingCounterClockwiseTurn(point: Point, hull: LinkedList<P
     val zCoordinate = firstProduct - secondProduct
 
     return when {
-        zCoordinate > 0L -> false
+        zCoordinate > 0.0000 -> false
         else -> true
     }
 }
@@ -66,8 +67,8 @@ private fun pointNotCausingCounterClockwiseTurn(point: Point, hull: LinkedList<P
  */
 private fun getListSortedByPolarAngleAndDistance(anchor: Point, points: List<Point>): List<Point> {
     for (point in points) {
-        point.anchorDistance = pow((point.x - anchor.x).toDouble(), 2.00) + pow((point.y - anchor.y).toDouble(), 2.00)
-        point.polarAngle = atan2((point.y - anchor.y).toDouble(), (point.x - anchor.x).toDouble())
+        point.anchorDistance = (point.x - anchor.x).pow(2.00) + (point.y - anchor.y).pow(2.00)
+        point.polarAngle = kotlin.math.atan2((point.y - anchor.y), (point.x - anchor.x))
     }
 
     return points.asSequence()

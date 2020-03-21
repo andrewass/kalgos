@@ -12,29 +12,38 @@ fun closestPairOfPoints(points: List<Point>): Pair<Point, Point>? {
     if (points.size < 2) {
         return null
     }
-    val bestPairResponse = divideAndFindClosestPairOfPoints(points.sortedBy { it.x }, 0, points.lastIndex,
-            points.sortedBy { it.y })
+    val bestPairResponse = divideAndFindClosestPairOfPoints(points.sortedBy { it.x }, points.sortedBy { it.y })
     return Pair(bestPairResponse.firstPoint, bestPairResponse.secondPoint)
 
 }
 
-private fun divideAndFindClosestPairOfPoints(sortedByX: List<Point>, first: Int, last: Int,
-                                             sortedByY: List<Point>): ClosestPairResponse {
-    if (last - first < 3) {
-        return findClosestDistanceByBruteForce(sortedByX, first, last)
+private fun divideAndFindClosestPairOfPoints(sortedByX: List<Point>, sortedByY: List<Point>): ClosestPairResponse {
+    if (sortedByX.size <= 3) {
+        return findClosestDistanceByBruteForce(sortedByX)
     }
-    val mid = sortedByX.size / 2 - 1
+    val mid = sortedByX.size / 2
+    val closestLeft = divideAndFindClosestPairOfPoints(sortedByX.subList(0, mid), sortedByY)
+    val closestRight = divideAndFindClosestPairOfPoints(sortedByX.subList(mid, sortedByX.size), sortedByY)
 
-    val closestLeft = divideAndFindClosestPairOfPoints(sortedByX, first, mid, sortedByY)
-    val closestRight = divideAndFindClosestPairOfPoints(sortedByX, mid + 1, sortedByX.lastIndex, sortedByY)
+    val sortedY = splitListByYCoordinates(sortedByX[mid].x, sortedByY)
+
     return ClosestPairResponse(closestLeft.firstPoint, closestLeft.secondPoint, closestLeft.distance)
 }
 
-private fun mergeListByYCoordinates(dividingPoint: Double, sortedByY: List<Point>) {
-
+private fun splitListByYCoordinates(dividingPoint: Double, sortedByY: List<Point>): Pair<List<Point>, List<Point>> {
+    val leftList = mutableListOf<Point>()
+    val rightList = mutableListOf<Point>()
+    for (point in sortedByY) {
+        if (point.x <= dividingPoint) {
+            leftList.add(point)
+        } else {
+            rightList.add(point)
+        }
+    }
+    return Pair(leftList, rightList)
 }
 
-private fun findClosestDistanceByBruteForce(points: List<Point>, first: Int, last: Int): ClosestPairResponse {
+private fun findClosestDistanceByBruteForce(points: List<Point>): ClosestPairResponse {
     var bestPair: ClosestPairResponse? = null
     for (firstPoint in points) {
         for (secondPoint in points) {
@@ -51,8 +60,8 @@ private fun findClosestDistanceByBruteForce(points: List<Point>, first: Int, las
 }
 
 private fun getDistance(firstPoint: Point, secondPoint: Point): Double {
-    return (firstPoint.x - secondPoint.x).toDouble().pow(2.00) +
-            (firstPoint.y - secondPoint.y).toDouble().pow(2.00)
+    return (firstPoint.x - secondPoint.x).pow(2.00) +
+            (firstPoint.y - secondPoint.y).pow(2.00)
 }
 
 private class ClosestPairResponse(val firstPoint: Point, val secondPoint: Point, val distance: Double)

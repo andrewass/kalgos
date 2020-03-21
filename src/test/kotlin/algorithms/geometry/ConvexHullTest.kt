@@ -8,14 +8,14 @@ class ConvexHullTest {
     @Test
     fun shouldReceiveHullPointsInCounterClockWiseOrder() {
         val points : List<Point> = mutableListOf(
-                Point(1,-1),
-                Point(0,0),
-                Point(-1,0),
-                Point(-1,1),
-                Point(0,3),
-                Point(2,2),
-                Point(-1,-1),
-                Point(1,1))
+                Point(1.00,-1.00),
+                Point(0.00,0.00),
+                Point(-1.00,0.00),
+                Point(-1.00,1.00),
+                Point(0.00,3.00),
+                Point(2.00,2.00),
+                Point(-1.00,-1.00),
+                Point(1.00,1.00))
 
         val result = convexHull(points)
 
@@ -31,25 +31,25 @@ class ConvexHullTest {
     @Test
     fun shouldHandleDuplicatePoints(){
         val points : List<Point> = mutableListOf(
-                Point(1,-1),
-                Point(1,-1),
-                Point(0,0),
-                Point(0,0),
-                Point(-1,-1),
-                Point(-1,-1))
+                Point(1.00,-1.00),
+                Point(1.00,-1.00),
+                Point(0.00,0.00),
+                Point(0.00,0.00),
+                Point(-1.00,-1.00),
+                Point(-1.00,-1.00))
 
         val result = convexHull(points)
 
         assertEquals(3, result.size)
 
-        assertEquals(-1, result[0].x)
-        assertEquals(1, result[1].x)
-        assertEquals(0, result[2].x)
+        assertEquals(-1.00, result[0].x)
+        assertEquals(1.00, result[1].x)
+        assertEquals(0.00, result[2].x)
     }
 
     @Test
     fun shouldHandleSinglePointInPlane(){
-        val points : List<Point> = mutableListOf(Point(1,1))
+        val points : List<Point> = mutableListOf(Point(1.00,1.00))
 
         val result = convexHull(points)
 

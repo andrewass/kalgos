@@ -1,6 +1,6 @@
 package algorithms.geometry
 
-class Point(val x: Long, val y: Long) {
+class Point(val x: Double, val y: Double) {
     var polarAngle = 0.00
     var anchorDistance = 0.00
 
