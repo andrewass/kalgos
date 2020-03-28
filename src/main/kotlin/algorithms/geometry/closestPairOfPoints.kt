@@ -17,17 +17,57 @@ fun closestPairOfPoints(points: List<Point>): Pair<Point, Point>? {
 
 }
 
-private fun divideAndFindClosestPairOfPoints(sortedByX: List<Point>, sortedByY: List<Point>): ClosestPairResponse {
-    if (sortedByX.size <= 3) {
-        return findClosestDistanceByBruteForce(sortedByX)
+private fun divideAndFindClosestPairOfPoints(sortedByXList: List<Point>, sortedByYList: List<Point>):
+        ClosestPairResponse {
+    if (sortedByXList.size <= 3) {
+        return findClosestDistanceByBruteForce(sortedByXList)
     }
-    val mid = sortedByX.size / 2
-    val closestLeft = divideAndFindClosestPairOfPoints(sortedByX.subList(0, mid), sortedByY)
-    val closestRight = divideAndFindClosestPairOfPoints(sortedByX.subList(mid, sortedByX.size), sortedByY)
+    val mid = sortedByXList.size / 2
+    val ySplit = splitListByYCoordinates(sortedByXList[mid - 1].x, sortedByYList)
+    val closestLeft = divideAndFindClosestPairOfPoints(sortedByXList.subList(0, mid), ySplit.first)
+    val closestRight = divideAndFindClosestPairOfPoints(sortedByXList.subList(mid, sortedByXList.size), ySplit.second)
 
-    val sortedY = splitListByYCoordinates(sortedByX[mid].x, sortedByY)
+    val minDistLeftRightSide = findMinDistBetweeenPairOfPoints(closestLeft, closestRight)
+    val yCrossingMidList = crossListByYCoordinates(sortedByXList[mid - 1].x, sortedByYList, minDistLeftRightSide.distance)
+    if (yCrossingMidList.size < 2) {
+        return minDistLeftRightSide
+    }
+    val closestCrossingMid = findClosestPointCrossingMid(yCrossingMidList)
+
 
     return ClosestPairResponse(closestLeft.firstPoint, closestLeft.secondPoint, closestLeft.distance)
+}
+
+private fun findClosestPointCrossingMid(points: List<Point>): ClosestPairResponse? {
+    var bestPair: ClosestPairResponse? = null
+    for (i in 0 until points.size-1) {
+        for (i in i+1 until points.size) {
+
+        }
+    }
+    return bestPair!!
+
+}
+
+private fun findMinDistBetweeenPairOfPoints(vararg pairResponse: ClosestPairResponse): ClosestPairResponse {
+    var closestPair = pairResponse[0]
+    for(i in 1 until  pairResponse.size){
+        
+    }
+    return closestPair
+}
+
+
+private fun crossListByYCoordinates(dividingPoint: Double, sortedByY: List<Point>, distance: Double): List<Point> {
+    val crossList = mutableListOf<Point>()
+    val leftLimit = dividingPoint - distance
+    val rightLimit = dividingPoint + distance
+    for (point in sortedByY) {
+        if (point.x > leftLimit && point.x < rightLimit) {
+            crossList.add(point)
+        }
+    }
+    return crossList
 }
 
 private fun splitListByYCoordinates(dividingPoint: Double, sortedByY: List<Point>): Pair<List<Point>, List<Point>> {
@@ -65,4 +105,5 @@ private fun getDistance(firstPoint: Point, secondPoint: Point): Double {
 }
 
 private class ClosestPairResponse(val firstPoint: Point, val secondPoint: Point, val distance: Double)
+
 

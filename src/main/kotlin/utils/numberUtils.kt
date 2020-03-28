@@ -2,6 +2,7 @@ package utils
 
 import java.math.BigInteger
 import java.math.BigInteger.ONE
+import kotlin.math.round
 
 
 /**
@@ -34,4 +35,10 @@ fun Int.toBinaryString(len: Int): String {
         powSum = powSum shr 1
     }
     return binaryString.toString()
+}
+
+fun Double.round(decimals : Int) : Double {
+    var multiplier = 1.0
+    repeat(decimals) { multiplier *= 10 }
+    return round(this * multiplier) / multiplier
 }
