@@ -8,10 +8,7 @@ import kotlin.math.pow
  * @param points A list with a points
  * @return a pair of the two closest points
  */
-fun closestPairOfPoints(points: List<Point>): Pair<Point, Point>? {
-    if (points.size < 2) {
-        return null
-    }
+fun closestPairOfPoints(points: List<Point>): Pair<Point, Point> {
     val bestPairResponse = divideAndFindClosestPairOfPoints(points.sortedBy { it.x }, points.sortedBy { it.y })
     return Pair(bestPairResponse.firstPoint, bestPairResponse.secondPoint)
 
@@ -33,21 +30,22 @@ private fun divideAndFindClosestPairOfPoints(sortedByXList: List<Point>, sortedB
         return minDistLeftRightSide
     }
     val closestCrossingMid = findClosestPointCrossingMid(yCrossingMidList)
+    val closestPair = findMinDistFromSetOfPairs(closestLeft, closestCrossingMid, closestRight)
 
-    return ClosestPairResponse(closestLeft.firstPoint, closestLeft.secondPoint, closestLeft.distance)
+    return ClosestPairResponse(closestPair.firstPoint, closestPair.secondPoint, closestPair.distance)
 }
 
-private fun findMinDistFromSetOfPairs(vararg  pairs : ClosestPairResponse) : ClosestPairResponse {
+private fun findMinDistFromSetOfPairs(vararg pairs: ClosestPairResponse) = pairs.minBy { it.distance }!!
 
-}
-
-
-
-private fun findClosestPointCrossingMid(points: List<Point>): ClosestPairResponse? {
+private fun findClosestPointCrossingMid(points: List<Point>): ClosestPairResponse {
     var bestPair: ClosestPairResponse? = null
     for (i in 0 until points.size - 1) {
-        for (i in i + 1 until points.size.coerceAtMost(i + 9)) {
-
+        for (j in i + 1 until points.size.coerceAtMost(i + 9)) {
+            val currentDistance = getDistance(points[i], points[j])
+            if (bestPair == null || currentDistance < bestPair.distance) {
+                bestPair = ClosestPairResponse(firstPoint = points[i],
+                        secondPoint = points[j], distance = currentDistance)
+            }
         }
     }
     return bestPair!!
@@ -100,6 +98,8 @@ private fun getDistance(firstPoint: Point, secondPoint: Point): Double {
             (firstPoint.y - secondPoint.y).pow(2.00)
 }
 
-private class ClosestPairResponse(val firstPoint: Point, val secondPoint: Point, val distance: Double)
+private class ClosestPairResponse(val firstPoint: Point,
+                                  val secondPoint: Point,
+                                  val distance: Double)
 
 
