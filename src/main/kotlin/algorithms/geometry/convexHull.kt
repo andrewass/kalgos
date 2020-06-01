@@ -1,7 +1,5 @@
 package algorithms.geometry
 
-import java.lang.Math.atan2
-import java.lang.Math.pow
 import java.util.*
 import kotlin.math.pow
 
