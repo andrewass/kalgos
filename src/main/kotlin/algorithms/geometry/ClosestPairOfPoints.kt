@@ -3,10 +3,10 @@ package algorithms.geometry
 import utils.euclideanDistance
 
 /**
- * Find the closest pair of points from a list of points
+ * Find the closest pair of points from a list of points. Using a divide-and-conquer approach
  *
- * @param points A list with a points
- * @return a pair of the two closest points
+ * @param points A list of points with x and y coordinates
+ * @return a response containing closest pair of points and their euclidean distance
  */
 fun closestPairOfPoints(points: List<Point>): ClosestPairResponse {
     return divideAndFindClosestPairOfPoints(points.sortedBy { it.x }, points.sortedBy { it.y })

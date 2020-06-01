@@ -49,12 +49,13 @@ Algorithms and Data Structures written in Kotlin
 - [Polygon Area](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/polygonArea.kt)
 - [Point in Polygon w/ Java API](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/pointInPolygon.kt)
 - [Convex Hull w/ Graham scan](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/convexHull.kt)
+- [Closest Pair of Points](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/geometry/ClosestPairOfPoints.kt)
 
 ### Number Theory
 
 - [Euclidean algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/number/greatestCommonDivisor.kt)
 - [Extended Euclidean algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/number/extendedEuclid.kt)
-- [Chinese Remainder Theorem](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/number/chineseRemainderTheorem.kt)
+- [Chinese Remainder theorem](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/number/chineseRemainderTheorem.kt)
 
 ### Combinatorics
 
