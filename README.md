@@ -39,6 +39,7 @@ Algorithms and Data Structures written in Kotlin
 ### Search
 
 - [Longest Increasing Subsequence w/ Binary Search](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/search/longestIncSubSeq.kt)
+- [Meet in the Middle](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/search/MeetInTheMiddle.kt)
 
 ### Set
 
