@@ -11,6 +11,7 @@ Algorithms and Data Structures written in Kotlin
 - [Aho-Corasick algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/AhoCorasick.kt)
 - [Suffix Array w/ LCP Array](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/string/SuffixArray.kt)
 - [Hamming Distance](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/HammingDistance.kt)
+- [Longest Palindromic Substring w/ Manacher's algorithm](https://github.com/andrewass/kalgos/tree/master/src/main/kotlin/algorithms/string/LongestPalindrome.kt)
 
 ### Range Query
 
