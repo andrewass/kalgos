@@ -36,6 +36,7 @@ Algorithms and Data Structures written in Kotlin
 
 - [Binary Search Tree](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/tree/BinarySearchTree.kt)
 - [Treap](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/tree/Treap.kt)
+- [Huffman Tree / Huffman Coding](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/tree/HuffmanTree.kt)
 
 ### Search
 
