@@ -14,7 +14,7 @@ internal class HuffmanTreeTest {
         val encoding = huffmanTree.getEncoding()
         val decoding = huffmanTree.getDecoding(encoding)
 
-        assertEquals(194, encoding.length)
+        assertEquals(194, encoding.length())
         assertEquals(decoding, inputWord)
     }
 
@@ -26,7 +26,7 @@ internal class HuffmanTreeTest {
         val encoding = huffmanTree.getEncoding()
         val decoding = huffmanTree.getDecoding(encoding)
 
-        assertEquals(1, encoding.length)
+        assertEquals(1, encoding.length())
         assertEquals(decoding, inputWord)
     }
 
@@ -37,7 +37,7 @@ internal class HuffmanTreeTest {
         val encoding = huffmanTree.getEncoding()
         val decoding = huffmanTree.getDecoding(encoding)
 
-        assertTrue(encoding.isEmpty())
+        assertTrue(encoding.isEmpty)
         assertTrue(decoding.isEmpty())
     }
 }

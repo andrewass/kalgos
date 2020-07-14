@@ -10,6 +10,7 @@ class HuffmanTree(private val word: String) {
     private val priorityQueue = PriorityQueue<Node>()
     private var rootNode: Node? = null
     private val encodeMapper = hashMapOf<Char, String>()
+    private var encodingLength = 0
 
     init {
         val charFrequencyMap = word.groupBy { it }
@@ -18,26 +19,33 @@ class HuffmanTree(private val word: String) {
         encodeWord(rootNode, StringBuilder(""))
     }
 
-    fun getEncoding(): String {
-        val encoding = StringBuilder("")
+    fun getEncoding(): BitSet {
+        val bitSet = BitSet(encodingLength)
+        var index = 0
         word.forEach {
-            encoding.append(encodeMapper[it])
+            val encode = encodeMapper[it]
+            encode!!.forEach { char ->
+                if (char == '1') {
+                    bitSet.set(index)
+                }
+                index++
+            }
         }
-        return encoding.toString()
+        return bitSet
     }
 
-    fun getDecoding(encoding: String): String {
+    fun getDecoding(bitSet: BitSet): String {
         val decoding = StringBuilder("")
         var node = rootNode
 
-        encoding.forEach {
-            node = if (it == '0') {
+        for (i in 0 until bitSet.length()) {
+            node = if (!bitSet.get(i)) {
                 node!!.left
             } else {
                 node!!.right
             }
             if (node!!.char != null) {
-                decoding.append(node!!.char)
+                decoding.append(node.char)
                 node = rootNode
             }
         }
@@ -63,6 +71,7 @@ class HuffmanTree(private val word: String) {
     private fun encodeWord(node: Node?, code: StringBuilder) {
         if (node != null) {
             if (node.char != null) {
+                encodingLength += node.freq * code.length
                 encodeMapper[node.char] = code.toString()
             } else {
                 encodeWord(node.left, code.append("0"))
