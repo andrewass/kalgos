@@ -1,9 +1,13 @@
 package algorithms.flow
 
-class FlowEdge(val to: FlowNode, val capacity : Long, val flowVal : Long){
-
+class FlowEdge(
+        val from: FlowNode,
+        val to: FlowNode,
+        val capacity: Long = 0L,
+        val flowVal: Long = 0L
+) {
     var flow = 0L
-    var reverseEdge : FlowEdge? = null
+    lateinit var reverseEdge: FlowEdge
 
     init {
         flow = flowVal

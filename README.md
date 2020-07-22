@@ -24,9 +24,13 @@ Algorithms and Data Structures written in Kotlin
 - [Bellman-Ford algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/bellmanFord.kt)
 - [Dijkstra's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/dijkstra.kt)
 - [Floyd-Warshall algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/shortestpath/floydWarshall.kt)
-- [Max Flow w/ Dinic's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/flow/dinicsAlgorithm.kt)
 - [Strongly Connected Components w/ Tarjan's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/connectedcomponents/SccTarjan.kt)
 - [Eulerian Path](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/graph/EulerianPathDirGraph.kt)
+
+### Network Flow
+
+- [Max Flow w/ Dinic's algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/flow/DinicsAlgorithm.kt)
+- [Max Flow w/ Edmonds Karp algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/flow/EdmondsKarp.kt)
 
 ### Greedy Algorithms
 
