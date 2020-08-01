@@ -1,5 +1,6 @@
 package algorithms.geometry
 
+import entities.Point
 import java.util.*
 import kotlin.math.pow
 

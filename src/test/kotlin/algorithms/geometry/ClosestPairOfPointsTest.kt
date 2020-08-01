@@ -1,5 +1,6 @@
 package algorithms.geometry
 
+import entities.Point
 import org.junit.jupiter.api.Test
 import utils.round
 import kotlin.test.assertEquals
@@ -98,7 +99,7 @@ class ClosestPairOfPointsTest {
         val pointList = mutableListOf<Point>()
         for(i in 1..rows.first().toInt()){
             val row = rows[i].split(" ")
-            pointList.add(Point(row[0].toDouble() , row[1].toDouble()))
+            pointList.add(Point(row[0].toDouble(), row[1].toDouble()))
         }
         return pointList
     }

@@ -1,5 +1,6 @@
 package datastructures.tree
 
+import entities.BinaryTreeNode
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import utils.createBinarySearchTree

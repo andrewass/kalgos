@@ -4,7 +4,7 @@ import implementations.GraphNodeImpl
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class StronglyConnectedComponentsTest {
+class SccTarjanTest {
 
     @Test
     fun componentCountShouldBeEqualToNodeCountWhenNoEdgesExists() {

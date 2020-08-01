@@ -7,7 +7,7 @@ Algorithms and Data Structures written in Kotlin
 
 - [Trie](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/string/Trie.kt)
 - [Knuth–Morris–Pratt algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/kmp.kt)
-- [Rabin-Karp algorihtm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/rabinKarp.kt)
+- [Rabin-Karp algorihtm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/RabinKarp.kt)
 - [Aho-Corasick algorithm](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/AhoCorasick.kt)
 - [Suffix Array w/ LCP Array](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/string/SuffixArray.kt)
 - [Hamming Distance](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/string/HammingDistance.kt)
@@ -41,6 +41,7 @@ Algorithms and Data Structures written in Kotlin
 - [Binary Search Tree](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/tree/BinarySearchTree.kt)
 - [Treap](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/tree/Treap.kt)
 - [Huffman Tree / Huffman Coding](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/datastructures/tree/HuffmanTree.kt)
+- [Lowest Common Ancestor w/ Binary Lifting](https://github.com/andrewass/kalgos/blob/master/src/main/kotlin/algorithms/tree/LcaBinaryLifting.kt) 
 
 ### Search
 

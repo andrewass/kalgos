@@ -1,5 +1,8 @@
 package utils
 
+/**
+ * Convert a binary string to an int
+ */
 fun String.binaryStringToInt(): Int {
     var sum = 0
     var multiplier = 1

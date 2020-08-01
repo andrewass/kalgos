@@ -1,5 +1,6 @@
 package datastructures.tree
 
+import entities.BinaryTreeNode
 import java.util.*
 
 /**

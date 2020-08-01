@@ -1,6 +1,6 @@
-package algorithms.geometry
+package entities
 
-
+//Todo: Complete implementation of class
 class LineSegment(private val firstPoint: Point, private val secPoint: Point) {
 
     infix fun intersects(other: LineSegment): Int {

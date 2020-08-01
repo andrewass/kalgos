@@ -1,5 +1,6 @@
 package algorithms.geometry
 
+import entities.Point
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
@@ -8,14 +9,14 @@ class ConvexHullTest {
     @Test
     fun shouldReceiveHullPointsInCounterClockWiseOrder() {
         val points : List<Point> = mutableListOf(
-                Point(1.00,-1.00),
-                Point(0.00,0.00),
-                Point(-1.00,0.00),
-                Point(-1.00,1.00),
-                Point(0.00,3.00),
-                Point(2.00,2.00),
-                Point(-1.00,-1.00),
-                Point(1.00,1.00))
+                Point(1.00, -1.00),
+                Point(0.00, 0.00),
+                Point(-1.00, 0.00),
+                Point(-1.00, 1.00),
+                Point(0.00, 3.00),
+                Point(2.00, 2.00),
+                Point(-1.00, -1.00),
+                Point(1.00, 1.00))
 
         val result = convexHull(points)
 
@@ -31,12 +32,12 @@ class ConvexHullTest {
     @Test
     fun shouldHandleDuplicatePoints(){
         val points : List<Point> = mutableListOf(
-                Point(1.00,-1.00),
-                Point(1.00,-1.00),
-                Point(0.00,0.00),
-                Point(0.00,0.00),
-                Point(-1.00,-1.00),
-                Point(-1.00,-1.00))
+                Point(1.00, -1.00),
+                Point(1.00, -1.00),
+                Point(0.00, 0.00),
+                Point(0.00, 0.00),
+                Point(-1.00, -1.00),
+                Point(-1.00, -1.00))
 
         val result = convexHull(points)
 
@@ -49,7 +50,7 @@ class ConvexHullTest {
 
     @Test
     fun shouldHandleSinglePointInPlane(){
-        val points : List<Point> = mutableListOf(Point(1.00,1.00))
+        val points : List<Point> = mutableListOf(Point(1.00, 1.00))
 
         val result = convexHull(points)
 

@@ -1,5 +1,7 @@
 package algorithms.geometry
 
+import entities.Point
+
 /**
  * Calculates the area of a polygon from a list of points.
  * The points must be ordered, either clockwise or counter-clockwise.

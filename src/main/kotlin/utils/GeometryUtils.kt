@@ -1,6 +1,6 @@
 package utils
 
-import algorithms.geometry.Point
+import entities.Point
 import kotlin.math.pow
 import kotlin.math.sqrt
 
